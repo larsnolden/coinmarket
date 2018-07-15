@@ -18,7 +18,9 @@ export default ({
   <Wrapper>
     <AppBar position="static">
       <ToolBar>
-        <Button onClick={onOverviewCLick}>
+        <Button 
+          onClick={onOverviewCLick}
+          >
           Overview
         </Button>
         <Button onClick={onLiquidityCLick}>

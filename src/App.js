@@ -10,21 +10,39 @@ import {
   routerMiddleware,
 } from 'react-router-redux'
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
+import pink from '@material-ui/core/colors/pink';
+
 import Routes from 'Routes';
 import rootReducer from 'reducers';
+import thunk from 'redux-thunk';
+
+import FetchHoc from 'elements/FetchHoc';
 
 const history = createHistory();
-const middleware = routerMiddleware(history);
+const middleware = [routerMiddleware(history), thunk];
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(middleware)
+  applyMiddleware(...middleware)
 );
+
+const theme = createMuiTheme({
+  palette: {
+    primary: orange,
+    secondary: pink,
+  },
+});
 
 export default () => (
   <Provider store={store}>
-    <ConnectedRouter history={history} >
-      <Routes/>
-    </ConnectedRouter>
+    <MuiThemeProvider theme={theme}>
+      <FetchHoc>
+        <ConnectedRouter history={history} >
+          <Routes/>
+        </ConnectedRouter>
+      </FetchHoc>
+    </MuiThemeProvider>
   </Provider>
 );
