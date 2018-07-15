@@ -1,20 +1,20 @@
 import { coinDataTypes } from 'actions/types';
 
 const initialState = {
-  coinData: [],
+  coins: [],
   numberOfCoins: 100,
 };
 
 export default function coinData(state = initialState, action) {
   switch(action.type) {
     case coinDataTypes.setCoinData:
+      console.log('coinData', action.coins)
       return {
         ...state,
-        coinData: action.coins,
+        coins: action.coins,
       }
 
     case coinDataTypes.setNumberOfCoins:
-      console.log('action.numberOfCoins', action.numberOfCoins)
       return {
         ...state,
         numberOfCoins: action.numberOfCoins,

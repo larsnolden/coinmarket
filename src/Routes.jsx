@@ -4,7 +4,7 @@ import {
   Redirect,
  } from 'react-router';
 import Liquidity from 'views/liquidity/components/Liquidity';
-import Overview from 'views/overview/components/Overview';
+import Overview from 'views/overview/container/Overview';
 
 export default () => (
   <div>

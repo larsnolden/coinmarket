@@ -7,7 +7,7 @@ import ToolBar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  
+  padding: 20px;
 `;
 
 export default ({
@@ -15,7 +15,7 @@ export default ({
   onLiquidityCLick,
   children,
 }) => (
-  <Wrapper>
+  <div>
     <AppBar position="static">
       <ToolBar>
         <Button 
@@ -28,6 +28,8 @@ export default ({
         </Button>
       </ToolBar>
     </AppBar>
-    {children}
-  </Wrapper> 
+    <Wrapper>
+      {children}
+    </Wrapper>
+  </div> 
 );
