@@ -1,10 +1,15 @@
 import { coinDataTypes } from './types';
 import axios from 'axios';
 
-const setCoinData = ({ coins }) => ({
+const setCoinData = coins => ({
   type: coinDataTypes.setCoinData,
-  coins
-}); 
+  coins,
+});
+
+const setNumberOfCoins = numberOfCoins => ({
+  type: coinDataTypes.setNumberOfCoins,
+  numberOfCoins,
+});
 
 export const getCoinData = ({ count }) => async (dispatch) => {
   try {
@@ -19,4 +24,9 @@ export const getCoinData = ({ count }) => async (dispatch) => {
     alert(`Error fetching coins: ${err}`) 
   }
 
+};
+
+export const handleCoinNumChange = numberOfCoins => dispatch => {
+  dispatch(setNumberOfCoins(numberOfCoins))
+  dispatch(getCoinData({ count: numberOfCoins}));
 };
