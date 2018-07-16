@@ -7,12 +7,12 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 200px;
-  justify-content: space-between;
+  margin-top: 15px;
 `;
 
 const Label = styled.div`
-  font-size: 1.5rem;
+  margin-right: 15px;
+  align-self: center;
 `;
 
 export default ({
@@ -21,7 +21,7 @@ export default ({
 }) => (
   <Wrapper>
   <Label>
-    # of coins: 
+    Show:
   </Label>
     <Select
       value={value}
