@@ -7,7 +7,7 @@ import { getCoinData } from 'actions/coinData';
 
 const fetchData = lifecycle({
   componentDidMount() {
-    this.props.dispatch(getCoinData(100));
+    this.props.dispatch(getCoinData({ initial: true}));
   }
 })
 
