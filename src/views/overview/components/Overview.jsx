@@ -60,7 +60,7 @@ const CoinColumn = ({
         <div>Price: {price}</div>
       </TableRow>
       <TableRow>
-        <div>Price Change (24h): {percentChange24}</div>
+        <div>Price Change (24h): {percentChange24} %</div>
       </TableRow>
       <TableRow>
         <div>Market Cap: {marketCap}</div>
