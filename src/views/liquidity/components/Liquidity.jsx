@@ -14,11 +14,11 @@ const createConfig = data => ({
       label: 'Coins',
       backgroundColor: '#ff9800',
       pointBorderWidth: 0,
-      pointHoverRadius: data.map(coin => coin.radius),
+      pointHoverRadius: data.map(coin => coin.radius / 9),
       pointHoverBackgroundColor: '#000',
       pointHoverBorderColor: '#ff9800',
       pointHoverBorderWidth: 2,
-      radius: data.map(coin => coin.radius / 2),
+      radius: data.map(coin => coin.radius / 10),
       pointHitRadius: 10,
       data,
     }
@@ -86,13 +86,13 @@ const mapCoinData = coins => coins.map(coin => ({
   tooltipValues: [
     {
       label: 'Marketcap',
-      value: formatNumber(coin.marketCap)
+      value: coin.marketCap ? formatNumber(coin.marketCap) : '',
     },    {
       label: 'Volume 24h',
-      value: formatNumber(coin.volume24)
+      value: coin.volume24 ? formatNumber(coin.volume24) : '',
     },    {
       label: 'Price change',
-      value: `${coin.percentChange24} %`
+      value: `${coin.percentChange24} %`,
     },
   ]
 }));
