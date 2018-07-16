@@ -48,7 +48,6 @@ const chartOptions = {
     },
     callbacks: {
       label: function(tooltipItem, data) {
-        // console.log(data.datasets[0].data[tooltipItem.index].tooltip[0].value)
         return ''
       },
       title: function(tooltipItem, data) {
