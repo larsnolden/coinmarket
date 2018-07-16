@@ -1,7 +1,9 @@
 ## Coinmarket
----
 Cryptocurrency market dashboard
 
+
+
+---
 ### Build with:
  - React
  - Redux
