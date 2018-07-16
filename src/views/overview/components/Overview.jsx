@@ -73,10 +73,10 @@ const CoinColumn = ({
 );
 
 
-export default ({ coins, numberOfCoins }) => (
+export default ({ coins }) => (
   <Navigation>
     <Heading>
-      Overview
+      OVERVIEW
     </Heading>
     <SelectCoinNum />
 
@@ -94,7 +94,6 @@ export default ({ coins, numberOfCoins }) => (
         </TableHead>
         <TableBody>
           {coins
-            .slice(0, numberOfCoins)
             .map(coin => <CoinRow key={coin.rank} {...coin} />)}
         </TableBody>
       </Table>

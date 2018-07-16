@@ -3,7 +3,7 @@ import {
   Route,
   Redirect,
  } from 'react-router';
-import Liquidity from 'views/liquidity/components/Liquidity';
+import Liquidity from 'views/liquidity/container/Liquidity';
 import Overview from 'views/overview/container/Overview';
 
 export default () => (

@@ -27,17 +27,27 @@ export const getCoinData = ({ count }) => async dispatch => {
 
     if (coins) {
       dispatch(setCoinData(coins));
+      dispatch(setCoinsVisibleData(coins));
     }
   } catch (err) {
     alert(`Error fetching coins: ${err}`);
   }
 };
 
-export const handleCoinNumChange = numberOfCoins => (dispatch, getState) => {
-  dispatch(setNumberOfCoins(numberOfCoins));
+const setCoinsVisibleData = coinsVisible => ({
+  type: coinDataTypes.setCoinsVisibleData,
+  coinsVisible
+});
 
-  //  only fetch coins that we did not fetch yet
-  const coinsFetched = getState().coinData.coins.length;
-  if (numberOfCoins > coinsFetched || 0)
-    dispatch(getCoinData({ count: numberOfCoins }));
+export const handleCoinNumChange = numberOfCoins => (dispatch, getState) => {
+  const state = getState();
+
+  if(numberOfCoins !==  state.coinData.numberOfCoins) {
+    dispatch(setNumberOfCoins(numberOfCoins));
+    
+    const fetchedCoins = getState().coinData.coins;
+    const visibleCoins = fetchedCoins.slice(0, numberOfCoins);
+    console.log(visibleCoins)
+    dispatch(setCoinsVisibleData(visibleCoins));
+  }
 };

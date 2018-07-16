@@ -2,8 +2,7 @@ import { connect } from "react-redux";
 import Overview from "../components/Overview";
 
 const mapState = state => ({
-  coins: state.coinData.coins,
-  numberOfCoins: state.coinData.numberOfCoins
+  coins: state.coinData.coinsVisible,
 });
 
 export default connect(
