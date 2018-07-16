@@ -14,9 +14,9 @@ const setNumberOfCoins = numberOfCoins => ({
 export const getCoinData = ({ count }) => async dispatch => {
   try {
     const data = await axios.get(
-      `https://api.coinmarketcap.com/v2/ticker/?limit=${count}`
+      `https://api.coinmarketcap.com/v2/ticker/?limit=${count}&structure=array`
     );
-    const coins = Object.values(data.data.data).map(coin => ({
+    const coins = data.data.data.map(coin => ({
       name: coin.name,
       rank: coin.rank,
       price: coin.quotes.USD.price,
