@@ -9,7 +9,6 @@ const initialState = {
 export default function coinData(state = initialState, action) {
   switch(action.type) {
     case coinDataTypes.setCoinData:
-      console.log('coinData', action.coins)
       return {
         ...state,
         coins: action.coins,

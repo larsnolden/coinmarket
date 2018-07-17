@@ -33,21 +33,8 @@ export const getCoinData = ({ initial }) => async dispatch => {
       coins = [...coins, ...currentCoins];
       pageSize = currentCoins.length;
       coinsCount = coinsCount + 100;
-      console.log('request made', coins)
       if(initial) break;
     }
-    console.log(coins)
-    // const data = await axios.get(
-    //   `https://api.coinmarketcap.com/v2/ticker/?structure=array`
-    // );
-    // const coins = data.data.data.map(coin => ({
-    //   name: coin.name,
-    //   rank: coin.rank,
-    //   price: coin.quotes.USD.price,
-    //   percentChange24: coin.quotes.USD.percent_change_24h,
-    //   volume24: coin.quotes.USD.volume_24h,
-    //   marketCap: coin.quotes.USD.market_cap
-    // }));
 
     if (coins) {
       dispatch(setCoinData(coins));
@@ -65,11 +52,13 @@ const setCoinsVisibleData = coinsVisible => ({
 
 export const handleCoinNumChange = numberOfCoins => (dispatch, getState) => {
   const state = getState();
+
+  //  only evaluate when value change
   if(numberOfCoins !==  state.coinData.numberOfCoins) {
     const fetchedCoins = getState().coinData.coins;
+
       //  we only fetched the ininital coin list, now fetch all
     if(numberOfCoins === 0 && fetchedCoins.length === 100) {
-      console.log('all')
       dispatch(getCoinData({ initial: false}))
     }
     dispatch(setNumberOfCoins(numberOfCoins));
